@@ -1,0 +1,18 @@
+---
+driver:
+  name: docker
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntu-14.04
+  - name: ubuntu-12.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[timezone::default]
+    attributes:
+      timezone:
+        zone: "Australia/Sydney"
