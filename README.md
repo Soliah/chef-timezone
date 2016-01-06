@@ -14,7 +14,6 @@ Only tested to be working on the following Ubuntu and Debian versions below, but
 - Debian 8.1
 - Debian 8.0
 
-
 ## Attributes
 
 ### timezone::default
