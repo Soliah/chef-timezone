@@ -1,6 +1,10 @@
 require "spec_helper"
 
 describe "timezone::default" do
+  before do
+    stub_command("grep US/Pacific /etc/timezone").and_return(1)
+  end
+
   let(:chef_run) do
     ChefSpec::SoloRunner.new do |node|
       node.set["timezone"]["zone"] = "US/Pacific"
@@ -11,25 +15,11 @@ describe "timezone::default" do
     expect(chef_run).to install_package("tzdata")
   end
 
-  context "timezone is not set" do
-    before do
-      stub_command("diff -s /etc/localtime /usr/share/zoneinfo/`cat /etc/timezone`").and_return(2)
-    end
-
-    it "creates the cookbook file" do
-      expect(chef_run).to create_file("/etc/timezone")
-    end
-
-    it "notifies update_tzdata" do
-      expect(chef_run.file("/etc/timezone")).to notify("execute[update_tzdata]").to(:run).delayed
-    end
+  it "creates the cookbook file" do
+    expect(chef_run).to create_template("/etc/timezone")
   end
 
-  context "timezone is already set" do
-    let(:chef_run) { ChefSpec::SoloRunner.converge(described_recipe) }
-
-    it "doesn't run update_tzdata" do
-      expect(chef_run).to_not run_execute("execute[update_tzdata]")
-    end
+  it "notifies update_tzdata" do
+    expect(chef_run.template("/etc/timezone")).to notify("execute[update_tzdata]").to(:run).delayed
   end
 end

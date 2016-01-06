@@ -12,10 +12,10 @@ execute "update_tzdata" do
   action :nothing
 end
 
-file "/etc/timezone" do
+template "/etc/timezone" do
   owner "root"
   group "root"
   mode "00644"
-  content node["timezone"]["zone"]
-  notifies :run, "execute[update_tzdata]"
+  source "timezone.erb"
+  notifies :run, "execute[update_tzdata]", :delayed
 end
