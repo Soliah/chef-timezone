@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Soliah/chef-timezone.svg)](https://travis-ci.org/Soliah/chef-timezone)
+[![Circle CI](https://circleci.com/gh/Soliah/chef-timezone.svg?style=svg)](https://circleci.com/gh/Soliah/chef-timezone)
 
 # chef-timezone
 
