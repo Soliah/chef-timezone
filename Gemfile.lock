@@ -260,6 +260,7 @@ DEPENDENCIES
   foodcritic
   kitchen-docker
   pry-byebug
+  rspec_junit_formatter
   rubocop
   serverspec
   test-kitchen
