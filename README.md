@@ -1,4 +1,4 @@
-[![Circle CI](https://circleci.com/gh/Soliah/chef-timezone.svg?style=svg)](https://circleci.com/gh/Soliah/chef-timezone)
+[![Circle CI](https://circleci.com/gh/kinesisptyltd/chef-timezone.svg?style=svg)](https://circleci.com/gh/kinesisptyltd/chef-timezone)
 
 # chef-timezone
 
