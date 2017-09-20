@@ -1,5 +1,3 @@
-[![Circle CI](https://circleci.com/gh/kinesisptyltd/chef-timezone.svg?style=svg)](https://circleci.com/gh/kinesisptyltd/chef-timezone)
-
 # chef-timezone
 
 Set timezone using `tzdata`.
